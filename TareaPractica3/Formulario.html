@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      width: 300px;
+      text-align: center;
+      border: 1px solid rgb(96, 60, 41);
+      border-radius: 10px;
+      padding: 10px;
+      background-color: rgb(224, 222, 219);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #478748;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <form id="contactForm" onsubmit="return validarFormulario()">
+    <h2>Contacto</h2>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email">
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea id="mensaje" name="mensaje"></textarea>
+
+    <input type="submit" value="Enviar">
+    <p id="errorMensaje" class="error"></p>
+  </form>
+
+  <script>
+    function validarFormulario() {
+      var nombre = document.getElementById('nombre').value;
+      var email = document.getElementById('email').value;
+      var mensaje = document.getElementById('mensaje').value;
+      var errorMensaje = document.getElementById('errorMensaje');
+
+      // Validar que los campos no estén vacíos
+      if (nombre === '' || email === '' || mensaje === '') {
+        errorMensaje.innerHTML = 'Por favor, complete todos los campos.';
+        return false;
+      }
+
+      // Validar el formato del correo electrónico
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        errorMensaje.innerHTML = 'Por favor, ingrese un correo electrónico válido.';
+        return false;
+      }
+
+      // Restablecer el mensaje de error si todo está bien
+      errorMensaje.innerHTML = '';
+
+      // Si todo está bien, el formulario se enviará
+      return true;
+    }
+  </script>
+
+</body>
+</html>

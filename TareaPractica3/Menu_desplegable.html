@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos para el menú de navegación */
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a, .dropdown-btn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover, .dropdown-btn:hover {
+            background-color: rgb(74, 69, 69)
+        }
+
+        .dropdown-container {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 10px;
+            position: absolute;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-btn {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        /* Estilos para las opciones adicionales del menú desplegable */
+        .dropdown-item {
+            display: block;
+            color: #333;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Menú de navegación principal -->
+<ul>
+    <li><a href="#">Inicio</a></li>
+    <li class="dropdown-btn">Servicios
+        <div class="dropdown-container">
+            <a href="#" class="dropdown-item">Servicio 1</a>
+            <a href="#" class="dropdown-item">Servicio 2</a>
+            <a href="#" class="dropdown-item">Servicio 3</a>
+        </div>
+    </li>
+    <li><a href="#">Acerca de</a></li>
+</ul>
+
+<script>
+    // JavaScript para manejar el despliegue de las opciones adicionales
+    document.querySelectorAll('.dropdown-btn').forEach(function(item) {
+        item.addEventListener('click', function() {
+            var dropdownContainer = this.querySelector('.dropdown-container');
+            dropdownContainer.style.display = (dropdownContainer.style.display === 'block') ? 'none' : 'block';
+        });
+    });
+</script>
+
+</body>
+</html>

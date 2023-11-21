@@ -1,0 +1,21 @@
+.principal{
+    border: 1px solid #1e1d1d;
+    margin: auto;
+    width: 200px;
+    height: 230px;
+    padding: 20px;
+    background-color: rgb(163, 182, 196);
+    box-shadow: 2px 2px 5px 0.05px;
+}
+
+h2{
+    text-align: center;
+}
+.boton{
+    width: 110px;
+    height: 30px;
+    margin-left: 50px;
+}
+.caja{
+    margin: 5px;
+}
